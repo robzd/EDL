@@ -24,19 +24,19 @@ public class PilhaRubroNegro {
         return capacidade - topoPreto;
     }
 
-    public int sizeArray() {
+    public int sizePilha() {
         return sizePreto() + sizeVermelho();
     }
 
-    public int sizeArray_Disponivel() {
+    public int sizePilhaDisponivel() {
         return topoPreto - topoVermelho - 1;
     }
 
-    public boolean isEmpty_Vermelho() {
+    public boolean isEmptyVermelho() {
         return topoVermelho == -1;
     }
 
-    public boolean isEmpty_Preto() {
+    public boolean isEmptyPreto() {
         return topoPreto == capacidade;
     }
 
@@ -47,7 +47,7 @@ public class PilhaRubroNegro {
             redimensionar(novoTamanho);
         }
 
-        else if (sizeArray() <= capacidade / 3 && capacidade > 1) {
+        else if (sizePilha() <= capacidade / 3 && capacidade > 1) {
             int novoTamanho = capacidade / 2;
             redimensionar(novoTamanho);
         }
@@ -61,53 +61,55 @@ public class PilhaRubroNegro {
         }
 
         int tamanhoPreto = capacidade - topoPreto;
-        int novatopoPreto = novoTamanho - tamanhoPreto;
+        int novotopoPreto = novoTamanho - tamanhoPreto;
         for (int i = 0; i < tamanhoPreto; i++) {
-            novaPilha[novatopoPreto + i] = pilhaRubroNegro[topoPreto + i];
+            novaPilha[novotopoPreto + i] = pilhaRubroNegro[topoPreto + i];
         }
 
-        topoPreto = novatopoPreto;
+        topoPreto = novotopoPreto;
         capacidade = novoTamanho;
         pilhaRubroNegro = novaPilha;
     }
 
     public Object topVermelho() throws PilhaVaziaExcecao {
-        if (isEmpty_Vermelho())
+        if (isEmptyVermelho())
             throw new PilhaVaziaExcecao("Pilha Vermelha Vazia");
         return pilhaRubroNegro[topoVermelho];
     }
 
     public Object topPreto() throws PilhaVaziaExcecao {
-        if (isEmpty_Preto())
+        if (isEmptyPreto())
             throw new PilhaVaziaExcecao("Pilha Preta Vazia");
         return pilhaRubroNegro[topoPreto];
     }
 
-    public Object popVermelho() {
-        if (isEmpty_Vermelho()) throw new PilhaVaziaExcecao("Pilha Vermelha Vazia");
+    public Object popVermelho() throws PilhaVaziaExcecao {
+        if (isEmptyVermelho())
+            throw new PilhaVaziaExcecao("Pilha Vermelha Vazia");
         Object obj = pilhaRubroNegro[topoVermelho--];
         verificarEspaco();
         return obj;
     }
 
-    public Object popPreto() {
-        if (isEmpty_Preto()) throw new PilhaVaziaExcecao("Pilha Preta Vazia");
+    public Object popPreto() throws PilhaVaziaExcecao {
+        if (isEmptyPreto())
+            throw new PilhaVaziaExcecao("Pilha Preta Vazia");
         Object obj = pilhaRubroNegro[topoPreto++];
         verificarEspaco();
         return obj;
     }
 
-    public void pushVermelho(Object novo_objeto) {
+    public void pushVermelho(Object novoObjeto) {
         verificarEspaco();
-        pilhaRubroNegro[++topoVermelho] = novo_objeto;
+        pilhaRubroNegro[++topoVermelho] = novoObjeto;
     }
 
-    public void pushPreto(Object novo_objeto) {
+    public void pushPreto(Object novoObjeto) {
         verificarEspaco();
-        pilhaRubroNegro[--topoPreto] = novo_objeto;
+        pilhaRubroNegro[--topoPreto] = novoObjeto;
     }
 
-    public void printar_array() {
+    public void printarArray() {
         System.out.println("-----------------------------------");
         System.out.println("Pilha Array");
         System.out.println(String.format(
