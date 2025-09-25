@@ -1,4 +1,3 @@
-
 public class Main {
     public static void main(String[] args) {
         PilhaRubroNegro pilha = new PilhaRubroNegro(4, 2);
