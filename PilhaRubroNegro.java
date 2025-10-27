@@ -3,13 +3,11 @@ public class PilhaRubroNegro {
     private int topoPreto;
 
     private int capacidade;
-    private int crescimento;
 
     private Object[] pilhaRubroNegro;
 
-    public PilhaRubroNegro(int capacidade, int crescimento) {
+    public PilhaRubroNegro(int capacidade) {
         this.capacidade = capacidade;
-        this.crescimento = crescimento > 0 ? crescimento : 2;
         this.topoVermelho = -1;
         this.topoPreto = capacidade;
 
@@ -43,7 +41,7 @@ public class PilhaRubroNegro {
     private void verificarEspaco() {
 
         if (topoVermelho + 1 == topoPreto) {
-            int novoTamanho = capacidade * crescimento;
+            int novoTamanho = capacidade * 2;
             redimensionar(novoTamanho);
         }
 
@@ -112,18 +110,8 @@ public class PilhaRubroNegro {
     public void printarArray() {
         System.out.println("-----------------------------------");
         System.out.println("Pilha Array");
-        System.out.println(String.format(
-                "Tamanho do Array: %d\nTamanho Pilha Vermelha: %d - P: %d\nTamanho Pilha Preta: %d - P: %d",
-                capacidade, sizeVermelho(), topoVermelho, sizePreto(), topoPreto));
-
         for (int i = 0; i < capacidade; i++) {
-            if (i <= topoVermelho) {
-                System.out.print(String.format(" %s V |", pilhaRubroNegro[i]));
-            } else if (i >= topoPreto) {
-                System.out.print(String.format(" %s P |", pilhaRubroNegro[i]));
-            } else {
-                System.out.print("     |");
-            }
+            System.out.println("Índice " + i + ": " + pilhaRubroNegro[i]);
         }
         System.out.println("\n-----------------------------------");
     }

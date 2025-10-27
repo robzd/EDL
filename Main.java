@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        PilhaRubroNegro pilha = new PilhaRubroNegro(-1, -1);
+        PilhaRubroNegro pilha = new PilhaRubroNegro(2);
 
         pilha.pushVermelho("V1");
         pilha.pushVermelho("V2");
