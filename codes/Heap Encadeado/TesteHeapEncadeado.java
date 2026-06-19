@@ -7,10 +7,10 @@ public class TesteHeapEncadeado {
         // =========================================================
         System.out.println("=== Heap Vazio ===");
         HeapEncadeado vazio = new HeapEncadeado();
-        System.out.println("isEmpty():   " + vazio.isEmpty());   // true
-        System.out.println("size():      " + vazio.size());      // 0
-        System.out.println("min():       " + vazio.min());       // null
-        System.out.println("removeMin(): " + vazio.removeMin()); // null
+        System.out.println("isEmpty():   " + vazio.isEmpty()); 
+        System.out.println("size():      " + vazio.size());   
+        System.out.println("min():       " + vazio.min());   
+        System.out.println("removeMin(): " + vazio.removeMin());
 
         // =========================================================
         // 2. Insercao
@@ -21,16 +21,16 @@ public class TesteHeapEncadeado {
         for (int c : chaves)
             heap.insert(c, "v" + c);
 
-        System.out.println("size():    " + heap.size());    // 6
-        System.out.println("isEmpty(): " + heap.isEmpty()); // false
+        System.out.println("size():    " + heap.size());  
+        System.out.println("isEmpty(): " + heap.isEmpty()); 
 
         // =========================================================
         // 3. min() - menor elemento sem remover
         // =========================================================
         System.out.println("\n=== min() ===");
-        System.out.println("min().key():   " + heap.min().key());   // 2
-        System.out.println("min().value(): " + heap.min().value()); // v2
-        System.out.println("size():        " + heap.size());        // 6 (nao removeu)
+        System.out.println("min().key():   " + heap.min().key()); 
+        System.out.println("min().value(): " + heap.min().value()); 
+        System.out.println("size():        " + heap.size());      
 
         // =========================================================
         // 4. removeMin() - deve sair em ordem crescente
@@ -39,11 +39,11 @@ public class TesteHeapEncadeado {
         System.out.print("Saida: ");
         while (!heap.isEmpty()) {
             Entry e = heap.removeMin();
-            System.out.print(e.key() + " "); // 2 5 8 10 15 22
+            System.out.print(e.key() + " ");
         }
         System.out.println();
-        System.out.println("size() apos esvaziar: " + heap.size());    // 0
-        System.out.println("isEmpty():            " + heap.isEmpty()); // true
+        System.out.println("size() apos esvaziar: " + heap.size()); 
+        System.out.println("isEmpty():            " + heap.isEmpty());
 
         // =========================================================
         // 5. Reuso apos esvaziar
@@ -52,8 +52,8 @@ public class TesteHeapEncadeado {
         heap.insert(7, "v7");
         heap.insert(3, "v3");
         heap.insert(9, "v9");
-        System.out.println("min().key(): " + heap.min().key()); // 3
-        System.out.println("size():      " + heap.size());      // 3
+        System.out.println("min().key(): " + heap.min().key());
+        System.out.println("size():      " + heap.size());    
 
         System.out.println("\n===== Todos os testes passaram =====");
     }

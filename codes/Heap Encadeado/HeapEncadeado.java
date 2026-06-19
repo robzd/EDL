@@ -47,8 +47,7 @@ public class HeapEncadeado {
     public Entry removeMin() {
         if (isEmpty())
             return null;
-        // Copia os dados do minimo antes de sobrescrever a raiz,
-        // pois o swap/downHeap alteram o MyEntry no proprio lugar.
+        
         Entry min = new MyEntry(raiz.getItem().key(), raiz.getItem().value());
 
         if (n == 1) {

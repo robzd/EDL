@@ -1,4 +1,4 @@
-interface Entry {
+public interface Entry {
     Object key();
 
     Object value();
