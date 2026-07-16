@@ -1,4 +1,4 @@
-public class Fila {
+public class FilaArrayDinamico {
     private Object array[];
     private int inicio = 0;
     private int fim = 0;
